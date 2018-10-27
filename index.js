@@ -49,3 +49,45 @@ const insertSort = array => {
 
     return sortArray;
 };
+
+const treeExample = tree = {
+    val: 1,
+    children: [
+        {
+            val: 2,
+            children: [
+                {
+                    val: 5
+                },
+                {
+                    val: 6
+                }
+            ]
+        },
+        {
+            val: 3
+        },
+        {
+            val: 4,
+            children: [
+                {
+                    val: 7
+                },
+                {
+                    val: 8
+                },
+                {
+                    val: 9
+                }
+            ]
+        },
+    ]
+};
+
+const deep = tree => {
+    const {val, children} = tree;
+
+    console.log(val);
+
+    children && children.forEach(tree => deep(tree));
+};
