@@ -156,3 +156,15 @@ const simple = n => {
         }
     }
 };
+
+const binSearch = (array, element) => {
+    const middleIndex = Math.floor(array.length / 2);
+
+    if (element === array[middleIndex]) {
+        return middleIndex;
+    } else if (element < array[middleIndex]) {
+        return binSearch(array.slice(0, middleIndex), element);
+    } else {
+        return middleIndex + binSearch(array.slice(middleIndex), element);
+    }
+};
