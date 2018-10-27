@@ -91,3 +91,16 @@ const deep = tree => {
 
     children && children.forEach(tree => deep(tree));
 };
+
+const wide = tree => {
+    let queue = [tree];
+
+    while (queue.length) {
+        const {val, children} = queue.shift();
+
+        console.log(val);
+        if (children) {
+            queue = queue.concat(children);
+        }
+    }
+};
