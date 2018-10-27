@@ -104,3 +104,27 @@ const wide = tree => {
         }
     }
 };
+
+const checkPar = string => {
+    const par = [];
+    const open = ['(', '[', '{'];
+    const close = [')', ']', '}'];
+
+    const symbols = string.split('');
+
+    while (symbols.length) {
+        const symbol = symbols.shift();
+
+        if (open.includes(symbol)) {
+            par.push(symbol);
+        } else if (close.includes(symbol)) {
+            const index = close.findIndex(par => par === symbol);
+
+            if (par.pop() !== open[index]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+};
