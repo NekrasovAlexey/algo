@@ -129,34 +129,29 @@ const checkPar = string => {
     return true;
 };
 
-const checkSimple = number => {
-    if (number < 4) {
-        return true;
-    }
-
-    if (number % 2 === 0) {
-        return false;
-    }
-
-    let i = 3;
-    while (i <= Math.sqrt(number)) {
-        if (number % i === 0) {
+const checkSimple = (number, simpleArray) => {
+    let i = 0;
+    while (simpleArray[i] <= Math.sqrt(number)) {
+        if (number % simpleArray[i] === 0) {
             return false;
         }
 
-        i += 2;
+        i++;
     }
 
     return true;
 };
 
 const simple = n => {
-    for (let i = 1; i <= n && i < 4; i++) {
+    const simpleArray = [];
+    for (let i = 2; i <= n && i < 4; i++) {
+        simpleArray.push(i);
         console.log(i);
     }
 
     for (let i = 5; i <= n; i += 2) {
-        if (checkSimple(i)) {
+        if (checkSimple(i, simpleArray)) {
+            simpleArray.push(i);
             console.log(i);
         }
     }
