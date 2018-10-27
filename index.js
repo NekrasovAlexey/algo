@@ -13,3 +13,22 @@ const bubleSort = array => {
 
     return sortArray;
 };
+
+const byMaxSort = array => {
+    const sortArray = [...array];
+
+    for (let i = sortArray.length; i > 0; i--) {
+        let maxIndex = 0;
+        for (let j = 1; j < i; j++) {
+            if (sortArray[j] > sortArray[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+
+        const next = sortArray[i - 1];
+        sortArray[i - 1] = sortArray[maxIndex];
+        sortArray[maxIndex] = next;
+    }
+
+    return sortArray;
+};
