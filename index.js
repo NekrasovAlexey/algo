@@ -158,13 +158,18 @@ const simple = n => {
 };
 
 const binSearch = (array, element) => {
-    const middleIndex = Math.floor(array.length / 2);
+    let middleIndex = Math.floor(array.length / 2);
+    let length = array.length;
 
-    if (element === array[middleIndex]) {
-        return middleIndex;
-    } else if (element < array[middleIndex]) {
-        return binSearch(array.slice(0, middleIndex), element);
-    } else {
-        return middleIndex + binSearch(array.slice(middleIndex), element);
+    while (element !== array[middleIndex]) {
+        length = length - middleIndex;
+
+        if (element < array[middleIndex]) {
+            middleIndex = middleIndex + Math.floor(length / 2);
+        } else {
+            middleIndex = middleIndex + Math.floor(length / 2);
+        }
     }
+
+    return middleIndex;
 };
