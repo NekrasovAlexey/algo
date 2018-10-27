@@ -42,6 +42,8 @@ const insertSort = array => {
                 const next = sortArray[j + 1];
                 sortArray[j + 1] = sortArray[j];
                 sortArray[j] = next;
+
+                break;
             }
         }
     }
