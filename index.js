@@ -32,3 +32,19 @@ const byMaxSort = array => {
 
     return sortArray;
 };
+
+const insertSort = array => {
+    const sortArray = [...array];
+
+    for (let i = sortArray.length - 2; i >= 0; i--) {
+        for (let j = i; j < sortArray.length - 1; j++) {
+            if (sortArray[j] > sortArray[j + 1]) {
+                const next = sortArray[j + 1];
+                sortArray[j + 1] = sortArray[j];
+                sortArray[j] = next;
+            }
+        }
+    }
+
+    return sortArray;
+};
