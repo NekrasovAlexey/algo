@@ -144,7 +144,7 @@ const checkSimple = number => {
             return false;
         }
 
-        i++
+        i += 2;
     }
 
     return true;
@@ -155,7 +155,7 @@ const simple = n => {
         console.log(i);
     }
 
-    for (let i = 5; i <=n; i += 2) {
+    for (let i = 5; i <= n; i += 2) {
         if (checkSimple(i)) {
             console.log(i);
         }
